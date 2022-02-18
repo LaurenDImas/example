@@ -33,7 +33,7 @@
                                     <td width="30%">{{ data.name }}</td>
                                     <td width="30%">{{ data.created_at | moment("HH:MM DD-MM-YYYY") }}</td>
                                     <td width="1%">
-                                        <actions :id="data.id"></actions>
+                                        <actions :id="data.id" @click='refreshDelete(data.id)'></actions>
                                     </td>
                                 </tr>
                             </tbody>
@@ -141,28 +141,17 @@ export default {
             this.sort = val;
             this.tables(0);
         }, 
-        deleteData(data) {
-            this.$swal({
-                title: "Are you sure ?",
-                text: "Deleted data cannot be recovery",
-                icon: "warning",
-                buttons: ["Cancel", "Delete"],
-                dangerMode: true
-            }).then(willDelete => {
-                if (willDelete) {
-                    this.remove(data)
-                        .then(() => {
-                            this.$router.push({ name: "roles" });
-                            this.alert("Data has been deleted !", 1);
-                            this.tables(0);
-                        })
-                        .catch(error => {
-                            if (error) {
-                                console.log(error);
-                            }
-                        });
+        refreshDelete(data){
+            this.remove(data)
+            .then(() => {
+                this.alert("Data has been deleted !", 1);
+                this.tables(0);
+            })
+            .catch(error => {
+                if (error) {
+                    console.log(error);
                 }
-            });
+            });        
         }
     }
 

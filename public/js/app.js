@@ -13927,30 +13927,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.sort = val;
       this.tables(0);
     },
-    deleteData: function deleteData(data) {
+    refreshDelete: function refreshDelete(data) {
       var _this2 = this;
 
-      this.$swal({
-        title: "Are you sure ?",
-        text: "Deleted data cannot be recovery",
-        icon: "warning",
-        buttons: ["Cancel", "Delete"],
-        dangerMode: true
-      }).then(function (willDelete) {
-        if (willDelete) {
-          _this2.remove(data).then(function () {
-            _this2.$router.push({
-              name: "roles"
-            });
+      this.remove(data).then(function () {
+        _this2.alert("Data has been deleted !", 1);
 
-            _this2.alert("Data has been deleted !", 1);
-
-            _this2.tables(0);
-          })["catch"](function (error) {
-            if (error) {
-              console.log(error);
-            }
-          });
+        _this2.tables(0);
+      })["catch"](function (error) {
+        if (error) {
+          console.log(error);
         }
       });
     }
@@ -62620,7 +62606,16 @@ var render = function () {
                                   _c(
                                     "td",
                                     { attrs: { width: "1%" } },
-                                    [_c("actions", { attrs: { id: data.id } })],
+                                    [
+                                      _c("actions", {
+                                        attrs: { id: data.id },
+                                        on: {
+                                          click: function ($event) {
+                                            return _vm.refreshDelete(data.id)
+                                          },
+                                        },
+                                      }),
+                                    ],
                                     1
                                   ),
                                 ])
