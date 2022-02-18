@@ -4,18 +4,15 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Http\Resources\UserCollection;
-use App\Http\Requests\UserRequest;
+use App\Models\Role;
+use App\Http\Resources\RoleCollection;
+use App\Http\Requests\RoleRequest;
 use Illuminate\Support\Facades\Hash;
-use File;
-use Helper; // Important
 
-
-class UserController extends Controller
+class RoleController extends Controller
 {
-    public static $modelName    = 'App\Models\User';
-    public static $response     = 'User';
+    public static $modelName    = 'App\Models\Role';
+    public static $response     = 'Role';
 
     /**
      * Display a listing of the resource.
@@ -64,12 +61,10 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+    public function store(RoleRequest $request)
     {
         try {
-            $request['photo']    = Helper::imageUpload("assets/images/users/",$request->photo,$request->name,null);
-            $request['password'] = Hash::make($request['password']);
-            $datas = User::create($request->all());
+            $datas = Role::create($request->all());
             return response()->json([
                 'status' => 200,
                 'message' => self::$response." data store successfully.",
@@ -86,20 +81,19 @@ class UserController extends Controller
         }
     }
 
-    /**\
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
-    public function show($id)
+    public function show(Role $role)
     {
         try {
             return response()->json([
                 'status' => 200,
                 'message' => self::$response." data retrieved successfully.",
-                'results' => self::$modelName::with('role')->findOrFail($id)
+                'results' => $role
             ]);
         } catch (\Exception $e) {
             $statusCode = ($e->getCode() > 100 && $e->getCode() < 600) ? $e->getCode() : 500;
@@ -120,12 +114,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserRequest $request, $id)
+    public function update(RoleRequest $request, $id)
     {
         try {
-            $datas = User::findOrFail($id);
-            $request['photo']    =  $request['photo'] !== $datas->photo ? Helper::imageUpload("assets/images/users/",$request->photo,$request->name,null) : $datas->photo;
-            $request['password'] = empty($request['password']) ? $datas->password : Hash::make($request['password']);
+            $datas = Role::findOrFail($id);
             $datas->update($request->all());
             return response()->json([
                 'status' => 200,
@@ -149,13 +141,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Role $role)
     {
         try {
             return response()->json([
                 'status' => 200,
                 'message' => self::$response." data delete successfully.",
-                'results' => $user->delete()
+                'results' => $role->delete()
             ]);
         } catch (\Exception $e) {
             $statusCode = ($e->getCode() > 100 && $e->getCode() < 600) ? $e->getCode() : 500;
@@ -168,5 +160,34 @@ class UserController extends Controller
         }
     }
 
+    public function listSelectRole(Request $request)
+    {
+        try {
+            $term = trim($request->term);
+            $posts = self::$modelName::select('id','name as text')
+                ->where('name', 'LIKE',  '%' . $term. '%')
+                ->orderBy('id', 'asc')->simplePaginate(6);
+        
+            $morePages=true;
+            $pagination_obj= json_encode($posts);
+            if (empty($posts->nextPageUrl())){
+                $morePages=false;
+            }
+            $results = array(
+                "results" => $posts->items(),
+                "pagination" => array(
+                    "more" => $morePages
+                )
+            );
+            return response()->json($results);
+        } catch (\Exception $e) {
+            $statusCode = ($e->getCode() > 100 && $e->getCode() < 600) ? $e->getCode() : 500;
 
+            return response()->json([
+                'status' => $statusCode,
+                'message' => $e->getMessage(),
+                'results' => null
+            ], $statusCode);
+        }
+    }
 }

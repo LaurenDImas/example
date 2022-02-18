@@ -1,19 +1,37 @@
 
+//plugin
 import VueRouter from 'vue-router';
+
+//Vuex
 import store from "./store.js";
+
+//Auth
 import Login from './views/Login';
+
+//Dashboard
 import Dashboard from './views/admin/dashboard/Index';
+
+//Users
 import Users from './views/admin/users/Index';
 import UserCreate from './views/admin/users/Create';
 import UserEdit from './views/admin/users/Edit';
 import UserShow from './views/admin/users/Show';
 
+//Roles
+import Roles from './views/admin/roles/Index';
+import RoleCreate from './views/admin/roles/Create';
+import RoleEdit from './views/admin/roles/Edit';
+import RoleShow from './views/admin/roles/Show';
+
 const routes = [
+    // Auth
     {
         path        : '/login',
         component   : Login,
         name        : 'login'
     },
+
+    //Dashboard
     {
         path        : '/',
         component   : Dashboard,
@@ -23,6 +41,8 @@ const routes = [
             breadcrumb: [],
         }
     },
+
+    //Users
     {
         path        : '/users',
         component   : Users,
@@ -79,6 +99,67 @@ const routes = [
             breadcrumb: [
                 { name: 'Users', to: "users"},
                 { name: 'Detail', to: "userShow"}
+            ],
+        }
+    },
+
+    //Roles
+    {
+        path        : '/roles',
+        component   : Roles,
+        name        : 'roles',
+        meta        : {
+            requestAuth: true,
+            buttonCreate: "roleCreate",
+            title: "Roles",
+            cardHeader: "List Role",
+            breadcrumb: [
+                { name: 'Roles', to: "roles"},
+            ],
+        }
+    },
+    {
+        path        : '/roles/create',
+        component   : RoleCreate,
+        name        : 'roleCreate',
+        meta        : {
+            requestAuth: true,
+            buttonCreate: "roles",
+            title: "Roles",
+            cardHeader: "Create Role",
+            breadcrumb: [
+                { name: 'Roles', to: "roles"},
+                { name: 'Create', to: "roleCreate"},
+            ],
+        }
+    },
+    {
+        path        : '/roles/edit/:id',
+        component   : RoleEdit,
+        name        : 'roleEdit',
+        meta        : {
+            requestAuth: true,
+            buttonCreate: "roles",
+            title: "Roles",
+            cardHeader: "Edit Role",
+            breadcrumb: [
+                { name: 'Roles', to: "roles"},
+                { name: 'Edit', to: "roleEdit"},
+            ],
+        }
+    },
+    {
+        path        : '/roles/:id',
+        component   : RoleShow,
+        name        : 'roleShow',
+        meta        : {
+            requestAuth: true,
+            buttonCreate: true,
+            title: "Roles",
+            cardHeader: "Detail Role",
+            breadcrumb: [
+                { name: 'Roles', to: "roles"},
+                { name: 'Detail', to: "roleShow"}
             ],
         }
     }

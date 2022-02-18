@@ -25,6 +25,8 @@
     },
     "dependencies": {
         "@saeris/vue-spinners": "^1.0.8",
+        "jquery": "^3.6.0",
+        "select2": "^4.1.0-rc.0",
         "vue-moment": "^4.1.0",
         "vue-router": "^3.5.3",
         "vue-spinner": "^1.0.4",

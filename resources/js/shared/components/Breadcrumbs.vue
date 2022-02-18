@@ -1,5 +1,5 @@
 <template>        
-    <div  v-if="$route.meta.breadcrumb.length >= 1" class="content-header mb-4 p-0 ">
+    <div  v-if="$route.meta.breadcrumb.length" class="content-header mb-4 p-0 ">
         <div class="d-flex align-items-center">
            <div class="mr-auto">
                <!-- {{$route.meta.breadcrumb.length}} -->

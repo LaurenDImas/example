@@ -13,37 +13,25 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <p>{{datas.name}}</p>
+                                    <p>{{data.name}}</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>E-mail</label>
-                                    <p>{{ datas.email }}</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Role</label>
-                                    <p>{{ datas.role.name }}</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Photo</label>
-                                    <p><img :src="datas.file_src" alt="" style="height:100px!important;"> </p>
+                                    <p>{{ data.email }}</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Created At</label>
-                                    <p>{{ datas.created_at | moment("HH:MM DD-MM-YYYY") }}</p>
+                                    <p>{{ data.created_at | moment("HH:MM DD-MM-YYYY") }}</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Updated At</label>
-                                    <p>{{ datas.updated_at | moment("HH:MM DD-MM-YYYY") }}</p>
+                                    <p>{{ data.updated_at | moment("HH:MM DD-MM-YYYY") }}</p>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +52,7 @@
 <script>
 import { mapActions, mapState, mapMutations } from "vuex";
 export default {
-    name : "show-users",
+    name : "edit-users",
     data() {
         return {
             loading : false
@@ -72,7 +60,7 @@ export default {
     },
     created(){
         this.loading = true;
-        this.show(this.$route.params.id)
+        this.edit(this.$route.params.id)
             .then((response) => {
                 this.loading = false;
             })
@@ -82,12 +70,15 @@ export default {
     },
     computed:{
         ...mapState("users",{
-            datas: state => state.datas
+            data: state => state.data
         })
     },
     methods: {
         ...mapMutations("users", ["CLEAR_DATA"]),
-        ...mapActions("users", ["show"])
+        ...mapActions("users", ["edit"])
+    },
+    destroyed() {
+        this.CLEAR_DATA();
     }
 }
 

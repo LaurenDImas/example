@@ -34,4 +34,12 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         'only' => ['index', 'show', 'store', 'update', 'destroy']
     ]);
     
+    // API roles
+    Route::resource('roles', App\Http\Controllers\Api\RoleController::class, [
+        'only' => ['index','edit', 'show', 'store', 'update', 'destroy']
+    ]);
+
+    Route::get('/list-select-role', [App\Http\Controllers\Api\RoleController::class, 'listSelectRole']);
+
+    
 });

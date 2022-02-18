@@ -1,4 +1,5 @@
 require('./bootstrap');
+require('select2');
 
 import Vue from 'vue';
 import VueRouter from "vue-router";
@@ -11,7 +12,9 @@ import $axios from "./api";
 import { VueSpinners } from '@saeris/vue-spinners';
 import Paginate from 'vuejs-paginate';
 import swall from './shared/mixins/swall';
-// import Breadcrumbs from "./shared/components/Breadcrumbs";
+import Breadcrumbs from "./shared/components/Breadcrumbs";
+// import * as jqueryExports from "jquery";
+// window.$ = jqueryExports.default;
 
 Vue.use(VueSwal)
 Vue.mixin(swall); 
@@ -20,10 +23,10 @@ Vue.use(VueRouter);
 Vue.use(Vuex);
 Vue.component('paginate', Paginate)
 Vue.use(require('vue-moment'));
-// Vue.component('bread-crumbs', Breadcrumbs);
+Vue.component('bread-crumbs', Breadcrumbs);
 
 
-
+Vue.config.devtools = true;
 new Vue({
     el: '#app',
     router,

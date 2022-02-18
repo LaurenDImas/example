@@ -5,13 +5,15 @@ Vue.use(Vuex);
 import auth from "./stores/auth.js";
 import dashboard from "./stores/admin/dashboard.js";
 import users from "./stores/admin/users.js";
+import roles from "./stores/admin/roles.js";
 
 
 const store = new Vuex.Store({
     modules: {
         auth,
         dashboard,
-        users
+        users,
+        roles
     },
     state: {
         token  : localStorage.getItem("token"),

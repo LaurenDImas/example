@@ -12,17 +12,21 @@
 
         <link rel="stylesheet" href="{{asset('main-semidark/css/vendors_css.css')}}">
         
+        
+        <style rel="stylesheet"  src="{{ mix('/css/app.css') }}"></style>
         <!-- Style-->  
         <link rel="stylesheet" href="{{asset('main-semidark/css/style.css')}}">
         <link rel="stylesheet" href="{{asset('main-semidark/css/skin_color.css')}}">
+        {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet"/> --}}
+
     </head>
     <body class="hold-transition light-skin sidebar-mini theme-primary fixed">
         <div id="app">
         </div>
 
+
         <script src="{{ mix('/js/app.js') }}"></script>
         
-	
         <!-- Vendor JS -->
         <script src="{{asset('main-semidark/js/vendors.min.js')}}"></script>
         <script src="{{asset('main-semidark/js/pages/chat-popup.js')}}"></script>
@@ -35,37 +39,6 @@
         <script src="{{asset('main-semidark/js/template.js')}}"></script>
         <script src="{{asset('main-semidark/js/pages/dashboard.js')}}"></script>
         <script src="{{asset('main-semidark/js/pages/calendar.js')}}"></script>
-        {{-- <script>
-            (function () {
-                // hold onto the drop down menu                                             
-                var dropdownMenu;
-
-                // and when you show it, move it to the body                                     
-                $(window).on('show.bs.dropdown', function (e) {
-
-                // grab the menu        
-                dropdownMenu = $(e.target).find('.dropdown-menu');
-
-                // detach it and append it to the body
-                $('body').append(dropdownMenu.detach());
-
-                // grab the new offset position
-                var eOffset = $(e.target).offset();
-
-                // make sure to place it where it would normally go (this could be improved)
-                dropdownMenu.css({
-                    'display': 'block',
-                        'top': eOffset.top + $(e.target).outerHeight(),
-                        'left': eOffset.left
-                });
-                });
-
-                // and when you hide it, reattach the drop down, and hide it normally                                                   
-                $(window).on('hide.bs.dropdown', function (e) {
-                    $(e.target).append(dropdownMenu.detach());
-                    dropdownMenu.hide();
-                });
-            })();
-        </script> --}}
+        
     </body>
 </html>

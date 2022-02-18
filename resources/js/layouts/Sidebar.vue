@@ -20,6 +20,12 @@
                             <i class="icon-User"><span class="path1"></span><span class="path2"></span></i>
                             <span>Users</span>
                         </router-link>
+                    </li> 
+                    <li :class="$route.name === 'roles' ? 'active' : ''">
+                        <router-link :to="{ name: 'roles' }">
+                            <i class="fa fa-unlock"><span class="path1"></span><span class="path2"></span></i>
+                            <span>Roles</span>
+                        </router-link>
                     </li> 	     
                 </ul>
             </div>
