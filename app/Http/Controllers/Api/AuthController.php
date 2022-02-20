@@ -61,9 +61,16 @@ class AuthController extends Controller
     // method for user logout and delete token
     public function logout()
     {
-        auth()->user()->tokens()->delete();
-        return [
-            'message' => 'You have successfully logged out and the token was successfully deleted'
-        ];
+        {
+            try {
+                //log user out
+                Auth::guard('web')->logout();
+    
+                return response()->json('', 204);
+            } catch (\Exception $e) {
+                //return error message
+                return response()->json('error_logout', 500);
+            }
+        }
     }
 }

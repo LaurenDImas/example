@@ -23,6 +23,7 @@ Route::post('/login', [App\Http\Controllers\Api\AuthController::class, 'login'])
 //Protecting Routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/profile', function(Request $request) {
+        // dd(auth()->user());
         return auth()->user();
     });
 

@@ -13,6 +13,7 @@
 				<div :class="{'container-full' : isAuth}">
 					<!-- Main content -->
 					<section :class="{'content' : isAuth}">
+						
 						<Breadcrumbs v-if="isAuth"></Breadcrumbs>
 						<router-view></router-view>
 					</section>
