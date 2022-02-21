@@ -32,5 +32,9 @@ new Vue({
     router,
     store,
     $axios,
-    render: h => h(Index)
+    render: h => h(Index),
+    async beforeCreate() {
+        // panggil action loadUser di vuex
+        this.$store.dispatch("auth/users");
+    }
 });

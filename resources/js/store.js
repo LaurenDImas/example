@@ -18,6 +18,7 @@ const store = new Vuex.Store({
     state: {
         token  : localStorage.getItem("token"),
         errors : [],
+        errorAuth : null,
     },
     mutations:{
         SET_TOKEN(state, payload) {
@@ -28,6 +29,9 @@ const store = new Vuex.Store({
         },
         SET_ERRORS(state, payload) {
             state.errors = payload;
+        },
+        SET_ERROR_AUTH(state, payload) {
+            state.errorAuth = payload;
         },
         CLEAR_ERRORS(state) {
             state.errors = [];

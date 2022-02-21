@@ -6,7 +6,7 @@
                     <div class="flex-grow-1 p-30 flex-grow-1 bg-img dask-bg bg-none-md" style="background-position: right bottom; background-size: auto 100%; background-image: url(../images/svg-icon/color-svg/custom-1.svg)">
                         <div class="row">
                             <div class="col-12 col-xl-7">
-                                <h2>Welcome back, <strong>{{auth.data.name}}</strong></h2>
+                                <h2>Welcome back, <strong v-if="auth.data" >{{auth.data.name}}</strong></h2>
 
                                 <p class="text-dark my-10 font-size-16">
                                     Your students complated <strong class="text-warning">80%</strong> of the tasks.
@@ -436,7 +436,7 @@
     </div>
 </template>
 <script>
-import {mapState, mapActions} from "vuex";
+import {mapState} from "vuex";
 export default {
     name : "dashboard",
     computed: {

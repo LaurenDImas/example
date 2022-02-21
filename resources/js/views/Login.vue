@@ -10,7 +10,11 @@
 								<p class="mb-0">Sign in to continue to WebkitX.</p>							
 							</div>
 							<div class="p-40">
-								<form action="index.html" method="post">
+								<div v-if="errorAuth" class="alert mb-2 alert-danger alert-dismissible">
+									<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+									{{errorAuth}}
+								</div>
+								<form  method="post">
 									<div class="form-group mb-3">
 										<div class="input-group">
 											<div class="input-group-prepend">
@@ -114,7 +118,7 @@ export default {
 	},
 	computed:{
 		...mapGetters(['isAuth']),
-		...mapState(['errors']),
+		...mapState(['errors','errorAuth']),
 	},
 	methods:{
 		...mapActions("auth", ['submit']),

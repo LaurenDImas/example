@@ -28,7 +28,10 @@ const routes = [
     {
         path        : '/login',
         component   : Login,
-        name        : 'login'
+        name        : 'login',
+        meta        : {
+            breadcrumb: [],
+        }
     },
 
     //Dashboard
@@ -177,6 +180,9 @@ router.beforeEach((to, from, next) => {
         if (!auth) {
             next({ name: "login" });
         } else {
+            if(!store.state.auth.data){
+                store.dispatch("auth/users"); 
+            }
             next();
         }
     } else {
