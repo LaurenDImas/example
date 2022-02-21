@@ -12946,7 +12946,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           _this.CLEAR_ERRORS();
 
           _this.$router.push({
-            name: "users"
+            name: "dashboard"
           });
         }
 

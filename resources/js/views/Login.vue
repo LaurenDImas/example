@@ -128,7 +128,7 @@ export default {
 			this.submit(this.data).then(()=>{
 				if (this.isAuth) {
                     this.CLEAR_ERRORS();
-                    this.$router.push({ name: "users" });
+                    this.$router.push({ name: "dashboard" });
                 }
 				this.loading = false;
 			})
