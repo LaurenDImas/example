@@ -15067,187 +15067,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./store.js */ "./resources/js/store.js");
-/* harmony import */ var _views_Login__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./views/Login */ "./resources/js/views/Login.vue");
-/* harmony import */ var _views_admin_dashboard_Index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/admin/dashboard/Index */ "./resources/js/views/admin/dashboard/Index.vue");
-/* harmony import */ var _views_admin_users_Index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/admin/users/Index */ "./resources/js/views/admin/users/Index.vue");
-/* harmony import */ var _views_admin_users_Create__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/admin/users/Create */ "./resources/js/views/admin/users/Create.vue");
-/* harmony import */ var _views_admin_users_Edit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/admin/users/Edit */ "./resources/js/views/admin/users/Edit.vue");
-/* harmony import */ var _views_admin_users_Show__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/admin/users/Show */ "./resources/js/views/admin/users/Show.vue");
-/* harmony import */ var _views_admin_roles_Index__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/admin/roles/Index */ "./resources/js/views/admin/roles/Index.vue");
-/* harmony import */ var _views_admin_roles_Create__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/admin/roles/Create */ "./resources/js/views/admin/roles/Create.vue");
-/* harmony import */ var _views_admin_roles_Edit__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/admin/roles/Edit */ "./resources/js/views/admin/roles/Edit.vue");
-/* harmony import */ var _views_admin_roles_Show__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/admin/roles/Show */ "./resources/js/views/admin/roles/Show.vue");
+/* harmony import */ var _routes_Authentication__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./routes/Authentication */ "./resources/js/routes/Authentication.js");
+/* harmony import */ var _routes_Dashboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./routes/Dashboard */ "./resources/js/routes/Dashboard.js");
+/* harmony import */ var _routes_Users__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./routes/Users */ "./resources/js/routes/Users.js");
+/* harmony import */ var _routes_Roles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./routes/Roles */ "./resources/js/routes/Roles.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 //plugin
  //Vuex
 
- //Auth
-
- //Dashboard
-
- //Users
-
-
-
-
- //Roles
+ //Module
 
 
 
 
 
-var routes = [// Auth
-{
-  path: '/login',
-  component: _views_Login__WEBPACK_IMPORTED_MODULE_1__["default"],
-  name: 'login',
-  meta: {
-    breadcrumb: []
-  }
-}, //Dashboard
-{
-  path: '/',
-  component: _views_admin_dashboard_Index__WEBPACK_IMPORTED_MODULE_2__["default"],
-  name: 'dashboard',
-  meta: {
-    requestAuth: true,
-    breadcrumb: []
-  }
-}, //Users
-{
-  path: '/users',
-  component: _views_admin_users_Index__WEBPACK_IMPORTED_MODULE_3__["default"],
-  name: 'users',
-  meta: {
-    requestAuth: true,
-    buttonCreate: "userCreate",
-    title: "Users",
-    cardHeader: "List User",
-    breadcrumb: [{
-      name: 'Users',
-      to: "users"
-    }]
-  }
-}, {
-  path: '/users/create',
-  component: _views_admin_users_Create__WEBPACK_IMPORTED_MODULE_4__["default"],
-  name: 'userCreate',
-  meta: {
-    requestAuth: true,
-    buttonCreate: "users",
-    title: "Users",
-    cardHeader: "Create User",
-    breadcrumb: [{
-      name: 'Users',
-      to: "users"
-    }, {
-      name: 'Create',
-      to: "userCreate"
-    }]
-  }
-}, {
-  path: '/users/edit/:id',
-  component: _views_admin_users_Edit__WEBPACK_IMPORTED_MODULE_5__["default"],
-  name: 'userEdit',
-  meta: {
-    requestAuth: true,
-    buttonCreate: "users",
-    title: "Users",
-    cardHeader: "Edit User",
-    breadcrumb: [{
-      name: 'Users',
-      to: "users"
-    }, {
-      name: 'Edit',
-      to: "userEdit"
-    }]
-  }
-}, {
-  path: '/users/:id',
-  component: _views_admin_users_Show__WEBPACK_IMPORTED_MODULE_6__["default"],
-  name: 'userShow',
-  meta: {
-    requestAuth: true,
-    buttonCreate: true,
-    title: "Users",
-    cardHeader: "Detail User",
-    breadcrumb: [{
-      name: 'Users',
-      to: "users"
-    }, {
-      name: 'Detail',
-      to: "userShow"
-    }]
-  }
-}, //Roles
-{
-  path: '/roles',
-  component: _views_admin_roles_Index__WEBPACK_IMPORTED_MODULE_7__["default"],
-  name: 'roles',
-  meta: {
-    requestAuth: true,
-    buttonCreate: "roleCreate",
-    title: "Roles",
-    cardHeader: "List Role",
-    breadcrumb: [{
-      name: 'Roles',
-      to: "roles"
-    }]
-  }
-}, {
-  path: '/roles/create',
-  component: _views_admin_roles_Create__WEBPACK_IMPORTED_MODULE_8__["default"],
-  name: 'roleCreate',
-  meta: {
-    requestAuth: true,
-    buttonCreate: "roles",
-    title: "Roles",
-    cardHeader: "Create Role",
-    breadcrumb: [{
-      name: 'Roles',
-      to: "roles"
-    }, {
-      name: 'Create',
-      to: "roleCreate"
-    }]
-  }
-}, {
-  path: '/roles/edit/:id',
-  component: _views_admin_roles_Edit__WEBPACK_IMPORTED_MODULE_9__["default"],
-  name: 'roleEdit',
-  meta: {
-    requestAuth: true,
-    buttonCreate: "roles",
-    title: "Roles",
-    cardHeader: "Edit Role",
-    breadcrumb: [{
-      name: 'Roles',
-      to: "roles"
-    }, {
-      name: 'Edit',
-      to: "roleEdit"
-    }]
-  }
-}, {
-  path: '/roles/:id',
-  component: _views_admin_roles_Show__WEBPACK_IMPORTED_MODULE_10__["default"],
-  name: 'roleShow',
-  meta: {
-    requestAuth: true,
-    buttonCreate: true,
-    title: "Roles",
-    cardHeader: "Detail Role",
-    breadcrumb: [{
-      name: 'Roles',
-      to: "roles"
-    }, {
-      name: 'Detail',
-      to: "roleShow"
-    }]
-  }
-}];
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_11__["default"]({
+var routes = [].concat(_toConsumableArray(_routes_Authentication__WEBPACK_IMPORTED_MODULE_1__["default"]), _toConsumableArray(_routes_Dashboard__WEBPACK_IMPORTED_MODULE_2__["default"]), _toConsumableArray(_routes_Users__WEBPACK_IMPORTED_MODULE_3__["default"]), _toConsumableArray(_routes_Roles__WEBPACK_IMPORTED_MODULE_4__["default"]));
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_5__["default"]({
   routes: routes,
   mode: "history"
 });
@@ -15275,6 +15123,231 @@ router.beforeEach(function (to, from, next) {
   }
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
+
+/***/ }),
+
+/***/ "./resources/js/routes/Authentication.js":
+/*!***********************************************!*\
+  !*** ./resources/js/routes/Authentication.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _views_Login__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../views/Login */ "./resources/js/views/Login.vue");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([{
+  path: '/login',
+  component: _views_Login__WEBPACK_IMPORTED_MODULE_0__["default"],
+  name: 'login',
+  meta: {
+    breadcrumb: []
+  }
+}]);
+
+/***/ }),
+
+/***/ "./resources/js/routes/Dashboard.js":
+/*!******************************************!*\
+  !*** ./resources/js/routes/Dashboard.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _views_admin_dashboard_Index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../views/admin/dashboard/Index */ "./resources/js/views/admin/dashboard/Index.vue");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([{
+  path: '/',
+  component: _views_admin_dashboard_Index__WEBPACK_IMPORTED_MODULE_0__["default"],
+  name: 'dashboard',
+  meta: {
+    requestAuth: true,
+    breadcrumb: []
+  }
+}]);
+
+/***/ }),
+
+/***/ "./resources/js/routes/Roles.js":
+/*!**************************************!*\
+  !*** ./resources/js/routes/Roles.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _views_admin_roles_Index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../views/admin/roles/Index */ "./resources/js/views/admin/roles/Index.vue");
+/* harmony import */ var _views_admin_roles_Create__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../views/admin/roles/Create */ "./resources/js/views/admin/roles/Create.vue");
+/* harmony import */ var _views_admin_roles_Edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../views/admin/roles/Edit */ "./resources/js/views/admin/roles/Edit.vue");
+/* harmony import */ var _views_admin_roles_Show__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../views/admin/roles/Show */ "./resources/js/views/admin/roles/Show.vue");
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([{
+  path: '/roles',
+  component: _views_admin_roles_Index__WEBPACK_IMPORTED_MODULE_0__["default"],
+  name: 'roles',
+  meta: {
+    requestAuth: true,
+    buttonCreate: "roleCreate",
+    title: "Roles",
+    cardHeader: "List Role",
+    breadcrumb: [{
+      name: 'Roles',
+      to: "roles"
+    }]
+  }
+}, {
+  path: '/roles/create',
+  component: _views_admin_roles_Create__WEBPACK_IMPORTED_MODULE_1__["default"],
+  name: 'roleCreate',
+  meta: {
+    requestAuth: true,
+    buttonCreate: "roles",
+    title: "Roles",
+    cardHeader: "Create Role",
+    breadcrumb: [{
+      name: 'Roles',
+      to: "roles"
+    }, {
+      name: 'Create',
+      to: "roleCreate"
+    }]
+  }
+}, {
+  path: '/roles/edit/:id',
+  component: _views_admin_roles_Edit__WEBPACK_IMPORTED_MODULE_2__["default"],
+  name: 'roleEdit',
+  meta: {
+    requestAuth: true,
+    buttonCreate: "roles",
+    title: "Roles",
+    cardHeader: "Edit Role",
+    breadcrumb: [{
+      name: 'Roles',
+      to: "roles"
+    }, {
+      name: 'Edit',
+      to: "roleEdit"
+    }]
+  }
+}, {
+  path: '/roles/:id',
+  component: _views_admin_roles_Show__WEBPACK_IMPORTED_MODULE_3__["default"],
+  name: 'roleShow',
+  meta: {
+    requestAuth: true,
+    buttonCreate: true,
+    title: "Roles",
+    cardHeader: "Detail Role",
+    breadcrumb: [{
+      name: 'Roles',
+      to: "roles"
+    }, {
+      name: 'Detail',
+      to: "roleShow"
+    }]
+  }
+}]);
+
+/***/ }),
+
+/***/ "./resources/js/routes/Users.js":
+/*!**************************************!*\
+  !*** ./resources/js/routes/Users.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _views_admin_users_Index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../views/admin/users/Index */ "./resources/js/views/admin/users/Index.vue");
+/* harmony import */ var _views_admin_users_Create__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../views/admin/users/Create */ "./resources/js/views/admin/users/Create.vue");
+/* harmony import */ var _views_admin_users_Edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../views/admin/users/Edit */ "./resources/js/views/admin/users/Edit.vue");
+/* harmony import */ var _views_admin_users_Show__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../views/admin/users/Show */ "./resources/js/views/admin/users/Show.vue");
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([{
+  path: '/users',
+  component: _views_admin_users_Index__WEBPACK_IMPORTED_MODULE_0__["default"],
+  name: 'users',
+  meta: {
+    requestAuth: true,
+    buttonCreate: "userCreate",
+    title: "Users",
+    cardHeader: "List User",
+    breadcrumb: [{
+      name: 'Users',
+      to: "users"
+    }]
+  }
+}, {
+  path: '/users/create',
+  component: _views_admin_users_Create__WEBPACK_IMPORTED_MODULE_1__["default"],
+  name: 'userCreate',
+  meta: {
+    requestAuth: true,
+    buttonCreate: "users",
+    title: "Users",
+    cardHeader: "Create User",
+    breadcrumb: [{
+      name: 'Users',
+      to: "users"
+    }, {
+      name: 'Create',
+      to: "userCreate"
+    }]
+  }
+}, {
+  path: '/users/edit/:id',
+  component: _views_admin_users_Edit__WEBPACK_IMPORTED_MODULE_2__["default"],
+  name: 'userEdit',
+  meta: {
+    requestAuth: true,
+    buttonCreate: "users",
+    title: "Users",
+    cardHeader: "Edit User",
+    breadcrumb: [{
+      name: 'Users',
+      to: "users"
+    }, {
+      name: 'Edit',
+      to: "userEdit"
+    }]
+  }
+}, {
+  path: '/users/:id',
+  component: _views_admin_users_Show__WEBPACK_IMPORTED_MODULE_3__["default"],
+  name: 'userShow',
+  meta: {
+    requestAuth: true,
+    buttonCreate: true,
+    title: "Users",
+    cardHeader: "Detail User",
+    breadcrumb: [{
+      name: 'Users',
+      to: "users"
+    }, {
+      name: 'Detail',
+      to: "userShow"
+    }]
+  }
+}]);
 
 /***/ }),
 
