@@ -1,7 +1,7 @@
 import Dashboard from './../views/admin/dashboard/Index';
 export default [
     {
-        path        : '/',
+        path        : '/admin/dashboard',
         component   : Dashboard,
         name        : 'dashboard',
         meta        : {

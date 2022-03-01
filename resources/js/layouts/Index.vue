@@ -47,6 +47,24 @@
 </template>
 
 <script>
+	// import '../../../public/main-semidark/css/vendors_css.css';
+	// import '../../../public/main-semidark/css/style.css';
+	// import '../../../public/main-semidark/css/skin_color.css';
+	
+	
+	
+	// import '../../../public/main-semidark/js/vendors.min.js';
+	// import '../../../public/main-semidark/js/pages/chat-popup.js';
+	// import '../../../public/assets/icons/feather-icons/feather.min.js';
+
+	// import '../../../public/assets/vendor_components/moment/min/moment.min.js';
+	// import '../../../public/assets/vendor_components/fullcalendar/fullcalendar.js';
+	
+	
+	// import '../../../public/main-semidark/js/template.js';
+	// import '../../../public/main-semidark/js/pages/dashboard.js';
+	// import '../../../public/main-semidark/js/pages/calendar.js';
+	
     import Sidebar from "./Sidebar";
 	import Header from "./Header";
 	import Footer from './Footer';

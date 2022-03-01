@@ -1,11 +1,11 @@
 require('./bootstrap');
 require('select2');
-
 import Vue from 'vue';
 import VueRouter from "vue-router";
 import Vuex from 'vuex';
 import store from './store.js';
 import Index from "./layouts/Index";
+import Frontend from "./frontend/Index";
 import router from "./routes";
 import VueSwal from 'vue-swal';
 import $axios from "./api";
@@ -32,7 +32,7 @@ new Vue({
     router,
     store,
     $axios,
-    render: h => h(Index),
+    render: h => (['login', 'admin'].includes(window.location.pathname.split("/")[1])) ? h(Index) : h(Frontend),
     async beforeCreate() {
         // panggil action loadUser di vuex
         this.$store.dispatch("auth/users");

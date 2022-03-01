@@ -10,35 +10,62 @@
         <!-- Vendors Style-->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <link rel="stylesheet" href="{{asset('main-semidark/css/vendors_css.css')}}">
-        
-        
+        {{request()->segment(1)}}
         <style rel="stylesheet"  src="{{ mix('/css/app.css') }}"></style>
-        <!-- Style-->  
-        <link rel="stylesheet" href="{{asset('main-semidark/css/style.css')}}">
-        <link rel="stylesheet" href="{{asset('main-semidark/css/skin_color.css')}}">
-        {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet"/> --}}
-
+        @if (in_array(request()->segment(1),['login','admin']))
+            <link rel="stylesheet" href="{{asset('main-semidark/css/vendors_css.css')}}">
+            <link rel="stylesheet" href="{{asset('main-semidark/css/style.css')}}">
+            <link rel="stylesheet" href="{{asset('main-semidark/css/skin_color.css')}}">
+        @else
+            <link rel="stylesheet" href="{{asset('main-horizontal/css/vendors_css.css')}}">
+            <link rel="stylesheet" href="{{asset('main-horizontal/css/horizontal-menu.css')}}">
+            <link rel="stylesheet" href="{{asset('main-horizontal/css/style.css')}}">
+            <link rel="stylesheet" href="{{asset('main-horizontal/css/skin_color.css')}}">
+        @endif
     </head>
-    <body class="hold-transition light-skin sidebar-mini theme-primary fixed">
+    <body   @if (in_array(request()->segment(1),['login','admin']))
+                class="hold-transition light-skin sidebar-mini theme-primary fixed"
+            @else
+                class="layout-top-nav light-skin theme-primary"
+            @endif
+            >
+        
         <div id="app">
-        </div>
+    </div>
 
 
         <script src="{{ mix('/js/app.js') }}"></script>
         
-        <!-- Vendor JS -->
-        <script src="{{asset('main-semidark/js/vendors.min.js')}}"></script>
-        <script src="{{asset('main-semidark/js/pages/chat-popup.js')}}"></script>
-        <script src="{{asset('assets/icons/feather-icons/feather.min.js')}}"></script>
+        @if (in_array(request()->segment(1),['login','admin']))
+            <!-- Vendor JS -->
+            <script src="{{asset('main-semidark/js/vendors.min.js')}}"></script>
+            <script src="{{asset('main-semidark/js/pages/chat-popup.js')}}"></script>
+            <script src="{{asset('assets/icons/feather-icons/feather.min.js')}}"></script>
 
-        <script src="{{asset('assets/vendor_components/moment/min/moment.min.js')}}"></script>
-        <script src="{{asset('assets/vendor_components/fullcalendar/fullcalendar.js')}}"></script>
-        
-        <!-- EduAdmin App -->
-        <script src="{{asset('main-semidark/js/template.js')}}"></script>
-        <script src="{{asset('main-semidark/js/pages/dashboard.js')}}"></script>
-        <script src="{{asset('main-semidark/js/pages/calendar.js')}}"></script>
-        
+            <script src="{{asset('assets/vendor_components/moment/min/moment.min.js')}}"></script>
+            <script src="{{asset('assets/vendor_components/fullcalendar/fullcalendar.js')}}"></script>
+            
+            <!-- EduAdmin App -->
+            <script src="{{asset('main-semidark/js/template.js')}}"></script>
+            <script src="{{asset('main-semidark/js/pages/dashboard.js')}}"></script>
+            <script src="{{asset('main-semidark/js/pages/calendar.js')}}"></script>
+        @else
+            
+            <script src="{{asset('main-horizontal/js/vendors.min.js')}}"></script>
+            <script src="{{asset('main-horizontal/js/pages/chat-popup.js')}}"></script>
+            <script src="{{asset('assets/icons/feather-icons/feather.min.js')}}"></script>	
+
+            <script src="{{asset('assets/vendor_components/apexcharts-bundle/dist/apexcharts.js')}}"></script>
+            <script src="{{asset('assets/vendor_components/moment/min/moment.min.js')}}"></script>
+            <script src="{{asset('assets/vendor_components/fullcalendar/fullcalendar.js')}}"></script>
+            
+            <!-- EduAdmin App -->
+            <script src="{{asset('main-horizontal/js/jquery.smartmenus.js')}}"></script>
+            <script src="{{asset('main-horizontal/js/menus.js')}}"></script>
+            <script src="{{asset('main-horizontal/js/template.js')}}"></script>
+            <script src="{{asset('main-horizontal/js/pages/dashboard.js')}}"></script>
+            <script src="{{asset('main-horizontal/js/pages/calendar.js')}}"></script>
+            
+        @endif
     </body>
 </html>

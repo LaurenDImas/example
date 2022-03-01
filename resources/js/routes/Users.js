@@ -5,7 +5,7 @@ import UserShow from './../views/admin/users/Show';
 
 export default [
     {
-        path        : '/users',
+        path        : '/admin/users',
         component   : Users,
         name        : 'users',
         meta        : {
@@ -19,7 +19,7 @@ export default [
         }
     },
     {
-        path        : '/users/create',
+        path        : '/admin/users/create',
         component   : UserCreate,
         name        : 'userCreate',
         meta        : {
@@ -34,7 +34,7 @@ export default [
         }
     },
     {
-        path        : '/users/edit/:id',
+        path        : '/admin/users/edit/:id',
         component   : UserEdit,
         name        : 'userEdit',
         meta        : {
@@ -49,7 +49,7 @@ export default [
         }
     },
     {
-        path        : '/users/:id',
+        path        : '/admin/users/:id',
         component   : UserShow,
         name        : 'userShow',
         meta        : {

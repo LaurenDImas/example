@@ -5,7 +5,7 @@ import RoleShow from './../views/admin/roles/Show';
 
 export default [
     {
-        path        : '/roles',
+        path        : '/admin/roles',
         component   : Roles,
         name        : 'roles',
         meta        : {
@@ -19,7 +19,7 @@ export default [
         }
     },
     {
-        path        : '/roles/create',
+        path        : '/admin/roles/create',
         component   : RoleCreate,
         name        : 'roleCreate',
         meta        : {
@@ -34,7 +34,7 @@ export default [
         }
     },
     {
-        path        : '/roles/edit/:id',
+        path        : '/admin/roles/edit/:id',
         component   : RoleEdit,
         name        : 'roleEdit',
         meta        : {
@@ -49,7 +49,7 @@ export default [
         }
     },
     {
-        path        : '/roles/:id',
+        path        : '/admin/roles/:id',
         component   : RoleShow,
         name        : 'roleShow',
         meta        : {
