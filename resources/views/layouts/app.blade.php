@@ -3,14 +3,13 @@
     <head>
         
 		<meta charset="utf-8" />    
-        <link rel="icon" href="{{asset('images/favicon.ico')}}">
+        <link rel="icon" href="https://hr.bintorocorp.co.id/assets/img/100x100.svg">
 
-        <title>EduAdmin - Dashboard</title>
+        <title>Skrisi</title>
         
         <!-- Vendors Style-->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        {{request()->segment(1)}}
         <style rel="stylesheet"  src="{{ mix('/css/app.css') }}"></style>
         @if (in_array(request()->segment(1),['login','admin']))
             <link rel="stylesheet" href="{{asset('main-semidark/css/vendors_css.css')}}">
@@ -52,20 +51,16 @@
         @else
             
             <script src="{{asset('main-horizontal/js/vendors.min.js')}}"></script>
-            <script src="{{asset('main-horizontal/js/pages/chat-popup.js')}}"></script>
             <script src="{{asset('assets/icons/feather-icons/feather.min.js')}}"></script>	
-
-            <script src="{{asset('assets/vendor_components/apexcharts-bundle/dist/apexcharts.js')}}"></script>
-            <script src="{{asset('assets/vendor_components/moment/min/moment.min.js')}}"></script>
-            <script src="{{asset('assets/vendor_components/fullcalendar/fullcalendar.js')}}"></script>
             
             <!-- EduAdmin App -->
             <script src="{{asset('main-horizontal/js/jquery.smartmenus.js')}}"></script>
             <script src="{{asset('main-horizontal/js/menus.js')}}"></script>
             <script src="{{asset('main-horizontal/js/template.js')}}"></script>
-            <script src="{{asset('main-horizontal/js/pages/dashboard.js')}}"></script>
-            <script src="{{asset('main-horizontal/js/pages/calendar.js')}}"></script>
             
+            {{-- detail --}}
+            {{-- <script src="{{asset('main-horizontal/js/pages/ecommerce_details.js')}}"></script> --}}
+
         @endif
     </body>
 </html>

@@ -25,6 +25,9 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
+
+        dd($request->all());
+
         $email      = 'required|string|email|max:255|unique:users';
         $password   = 'required|string|min:8|confirmed';
         if($this->route('user')){

@@ -5,16 +5,22 @@ import VueRouter from 'vue-router';
 import store from "./store.js";
 //Module
 import Authentication from './routes/Authentication';
+//FE
+import Home from './routes/Home';
+import Design from './routes/Design';
+//BE
 import Dashboard from './routes/Dashboard';
 import Users from './routes/Users';
 import Roles from './routes/Roles';
 
 
 const routes = [
+    ...Home,
+    ...Design,
     ...Authentication,
     ...Dashboard,
     ...Users,
-    ...Roles
+    ...Roles,
 ];
 
 const router = new VueRouter({
