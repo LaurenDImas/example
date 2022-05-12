@@ -13,8 +13,9 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $guarded = ['id'];
-    protected $appends = ['file_src'];
+    protected $connection = "mysql_hris";
+    protected $table = "users";
+
     public static $public_path_file = 'assets/images/users';
 
     protected $hidden = [

@@ -1,5 +1,8 @@
 export default{
     methods: { 
+        capFirstLetter(val) {
+            return val.charAt(0).toUpperCase() + val.slice(1);
+        },   
         alert(text, tipe) {
             if (tipe === 1) {
                 return this.$swal({

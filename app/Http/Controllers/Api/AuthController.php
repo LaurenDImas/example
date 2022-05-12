@@ -41,7 +41,7 @@ class AuthController extends Controller
     {
         // dd($request->all());
         $this->validate($request, [
-            'email' => 'required|exists:users,email',
+            'email' => 'required|exists:mysql_hris.users,email',
             'password' => 'required'
         ]);
         

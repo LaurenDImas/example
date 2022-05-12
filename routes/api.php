@@ -33,6 +33,16 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('users', App\Http\Controllers\Api\UserController::class, [
         'only' => ['index', 'show', 'store', 'update', 'destroy']
     ]);
+
+    // API asset
+    Route::resource('assets', App\Http\Controllers\Api\AssetController::class, [
+        'only' => ['index', 'show', 'store', 'update', 'destroy']
+    ]);
+
+    // API category
+    Route::resource('categories', App\Http\Controllers\Api\CategoryController::class, [
+        'only' => ['index', 'show', 'store', 'update', 'destroy']
+    ]);
     
     // API roles
     Route::resource('roles', App\Http\Controllers\Api\RoleController::class, [

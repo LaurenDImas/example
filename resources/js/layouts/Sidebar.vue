@@ -15,12 +15,21 @@
                     </li>
 
                     <li class="header">Master</li>
+                    
+                    <li :class="$route.name === 'asset' ? 'active' : ''">
+                        <router-link :to="{ name: 'asset' }">
+                            <i class="fa fa-list-alt"><span class="path1"></span><span class="path2"></span></i>
+                            <span>Asset</span>
+                        </router-link>
+                    </li> 
+
                     <li :class="$route.name === 'users' ? 'active' : ''">
                         <router-link :to="{ name: 'users' }">
                             <i class="icon-User"><span class="path1"></span><span class="path2"></span></i>
                             <span>Users</span>
                         </router-link>
                     </li> 
+
                     <li :class="$route.name === 'roles' ? 'active' : ''">
                         <router-link :to="{ name: 'roles' }">
                             <i class="fa fa-unlock"><span class="path1"></span><span class="path2"></span></i>

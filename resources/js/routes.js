@@ -11,6 +11,13 @@ import Login from './views/Login';
 //Dashboard
 import Dashboard from './views/admin/dashboard/Index';
 
+
+//Users
+import Asset from './views/admin/asset/Index';
+import AssetCreate from './views/admin/asset/Create';
+import AssetEdit from './views/admin/asset/Edit';
+import AssetShow from './views/admin/asset/Show';
+
 //Users
 import Users from './views/admin/users/Index';
 import UserCreate from './views/admin/users/Create';
@@ -33,12 +40,73 @@ const routes = [
 
     //Dashboard
     {
-        path        : '/',
+        path        : '/dashboard',
         component   : Dashboard,
         name        : 'dashboard',
         meta        : {
             requestAuth: true,
             breadcrumb: [],
+        }
+    },
+
+     //assets
+     {
+        path        : '/asset',
+        component   : Asset,
+        name        : 'asset',
+        meta        : {
+            requestAuth: true,
+            buttonCreate: "assetCreate",
+            title: "Asset",
+            cardHeader: "List Asset",
+            breadcrumb: [
+                { name: 'Asset', to: "asset"},
+            ],
+        }
+    },
+    {
+        path        : '/asset/create',
+        component   : AssetCreate,
+        name        : 'assetCreate',
+        meta        : {
+            requestAuth: true,
+            buttonCreate: "asset",
+            title: "Asset",
+            cardHeader: "Create Asset",
+            breadcrumb: [
+                { name: 'Asset', to: "asset"},
+                { name: 'Create', to: "assetCreate"},
+            ],
+        }
+    },
+    {
+        path        : '/asset/edit/:id',
+        component   : AssetEdit,
+        name        : 'assetEdit',
+        meta        : {
+            requestAuth: true,
+            buttonCreate: "asset",
+            title: "Asset",
+            cardHeader: "Edit Asset",
+            breadcrumb: [
+                { name: 'Asset', to: "asset"},
+                { name: 'Edit', to: "assetEdit"},
+            ],
+        }
+    },
+    {
+        path        : '/asset/:id',
+        component   : AssetShow,
+        name        : 'assetShow',
+        meta        : {
+            requestAuth: true,
+            buttonCreate: 'asset',
+            title: "Asset",
+            cardHeader: "Detail Asset",
+            breadcrumb: [
+                { name: 'Asset', to: "asset"},
+                { name: 'Detail', to: "assetShow"}
+            ],
         }
     },
 
@@ -93,7 +161,7 @@ const routes = [
         name        : 'userShow',
         meta        : {
             requestAuth: true,
-            buttonCreate: true,
+            buttonCreate: 'users',
             title: "Users",
             cardHeader: "Detail User",
             breadcrumb: [
@@ -177,6 +245,9 @@ router.beforeEach((to, from, next) => {
         if (!auth) {
             next({ name: "login" });
         } else {
+            if(!store.state.auth.data){
+                store.dispatch("auth/users"); 
+            }
             next();
         }
     } else {

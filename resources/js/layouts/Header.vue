@@ -171,11 +171,9 @@ export default {
         logout() {
             return new Promise((resolve, reject) => {
                 localStorage.removeItem("token");
-                localStorage.removeItem("auth");
                 resolve();
             }).then(() => {
                 this.$store.state.token = localStorage.getItem("token");
-                this.$store.state.authuser = localStorage.getItem("auth");
                 // this.$store.commit("auth/CLEAR_USERS");
                 this.$router.push("/login");
             });

@@ -12,6 +12,7 @@ import $axios from "./api";
 import { VueSpinners } from '@saeris/vue-spinners';
 import Paginate from 'vuejs-paginate';
 import swall from './shared/mixins/swall';
+import './shared/mixins/generalMixin.js';
 import Breadcrumbs from "./shared/components/Breadcrumbs";
 // import * as jqueryExports from "jquery";
 // window.$ = jqueryExports.default;
@@ -32,5 +33,9 @@ new Vue({
     router,
     store,
     $axios,
-    render: h => h(Index)
+    render: h => h(Index),
+    async beforeCreate() {
+        // panggil action loadUser di vuex
+        this.$store.dispatch("auth/users");
+    }
 });

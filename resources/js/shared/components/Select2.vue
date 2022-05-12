@@ -4,9 +4,7 @@
 </template>
 <script>
 // import select2 from 'select2';
-import $ from 'jquery';
-
-
+import $ from 'jquery'; 
 export default {
     props:{
         'template' : String,

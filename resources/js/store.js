@@ -4,15 +4,19 @@ Vue.use(Vuex);
 
 import auth from "./stores/auth.js";
 import dashboard from "./stores/admin/dashboard.js";
+import asset from "./stores/admin/asset.js";
 import users from "./stores/admin/users.js";
 import roles from "./stores/admin/roles.js";
+import category from "./stores/admin/category.js";
 
 
 const store = new Vuex.Store({
     modules: {
         auth,
         dashboard,
+        asset,
         users,
+        category,
         roles
     },
     state: {
